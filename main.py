@@ -14,11 +14,17 @@ from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
 # Optional: add contact me email functionality (Day 60)
 import os
 import smtplib
+import os
 from dotenv import load_dotenv
-from pathlib import Path
-env_path = Path(__file__).resolve().parent / ".env"
-load_dotenv(dotenv_path=env_path)
 
+# Only load dotenv if we are running locally
+if os.path.exists(".env"):
+    load_dotenv()
+
+app = Flask(__name__)
+# Provide a fallback for the Secret Key so it doesn't crash if missing
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'fallback-secret-key-123')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///posts.db')
 
 
 
@@ -286,8 +292,7 @@ def about():
 # Use environment variables instead (Day 35)
 
 
-env_path = Path(__file__).resolve().parent / ".env"
-load_dotenv(dotenv_path=env_path)
+
 
 
 MAIL_ADDRESS = os.environ.get("EMAIL_KEY")
