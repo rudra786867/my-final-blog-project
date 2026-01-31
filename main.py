@@ -37,7 +37,7 @@ This will install the packages from the requirements.txt for this project.
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get('SCREEET_KEY')
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 
 ckeditor = CKEditor(app)
 Bootstrap5(app)
@@ -292,8 +292,6 @@ load_dotenv(dotenv_path=env_path)
 
 MAIL_ADDRESS = os.environ.get("EMAIL_KEY")
 MAIL_APP_PW = os.environ.get("PASSWORD_KEY")
-print("EMAIL:", MAIL_ADDRESS)
-print("PASS:", MAIL_APP_PW)
 
 
 @app.route("/contact", methods=["GET", "POST"])
