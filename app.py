@@ -129,10 +129,6 @@ def logout():
 
 
 # DEBUG ROUTES - YE ADD KAR
-@app.route('/test')
-def test():
-    return "<h1>🎉 SERVER PERFECT! Templates issue!</h1><p><a href='/'>Home</a> | <a href='/debug'>Debug</a></p>"
-
 
 @app.route('/debug')
 def debug():
