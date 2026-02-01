@@ -222,7 +222,7 @@ def send_email(name, email, phone, message):
     mail_address = os.environ.get("EMAIL_KEY")
     mail_pw = os.environ.get("PASSWORD_KEY")
     email_message = f"Subject:New Message\n\nName: {name}\nEmail: {email}\nPhone: {phone}\nMessage:{message}"
-    with smtplib.SMTP("smtp.gmail.com", 587, timeout=10) as connection:
+    with smtplib.SMTP("smtp.gmail.com", 465, timeout=10) as connection:
         connection.starttls()
         connection.login(mail_address, mail_pw)
         connection.sendmail(mail_address, mail_address, email_message)
